@@ -1,0 +1,16 @@
+{
+    "name": "rfcmarques/workopia-php",
+    "description": "Job listing application",
+    "authors": [
+        {
+            "name": "Rui Marques",
+            "email": "rui.marques1997@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
