@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Framework\Database;
+use Framework\Session;
 use Framework\Validation;
 
 class UserController
@@ -69,7 +70,7 @@ class UserController
             'email' => $email
         ];
 
-        $user = $this->db->query('SELECT * FROMT users WHERE email = :email', $params)->fetch();
+        $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
 
         if ($user) {
             loadView('users/create', [
@@ -92,7 +93,17 @@ class UserController
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ];
 
-        $this->db->query('INSERT INTO user (name, email, city, state, password) VALUE (:name, :email, :city, :state, :password)', $params);
+        $this->db->query('INSERT INTO users (name, email, city, state, password) VALUE (:name, :email, :city, :state, :password)', $params);
+
+        $userId = $this->db->conn->lastInsertId();
+
+        Session::set('user', [
+            'id' => $userId,
+            'name' => $name,
+            'email' => $email,
+            'city' => $city,
+            'state' => $state
+        ]);
 
         redirect('/');
     }
