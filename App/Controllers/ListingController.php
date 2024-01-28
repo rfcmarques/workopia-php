@@ -17,7 +17,7 @@ class ListingController
 
     public function index()
     {
-        $listings = $this->db->query('SELECT * FROM listings LIMIT 6')->fetchAll();
+        $listings = $this->db->query('SELECT * FROM listings')->fetchAll();
 
         loadView('listings/index', [
             'listings' => $listings
@@ -45,5 +45,18 @@ class ListingController
     public function create()
     {
         loadView('listings/create');
+    }
+
+    public function store()
+    {
+        $allowedFields = ['title', 'description', 'salary', 'tags', 'company', 'address', 'city', 'state', 'phone', 'email', 'requirements', 'benefits'];
+
+        $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
+
+        $newListingData['user_id'] = 1;
+
+        $newListingData = array_map('sanitize', $newListingData);
+
+        dd($newListingData);
     }
 }
