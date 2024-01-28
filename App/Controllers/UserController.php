@@ -63,7 +63,37 @@ class UserController
                 ]
             ]);
             exit;
-        } else {
         }
+
+        $params = [
+            'email' => $email
+        ];
+
+        $user = $this->db->query('SELECT * FROMT users WHERE email = :email', $params)->fetch();
+
+        if ($user) {
+            loadView('users/create', [
+                'errors' => $errors,
+                'user' => [
+                    'name' => $name,
+                    'email' => $email,
+                    'city' => $city,
+                    'state' => $state
+                ]
+            ]);
+            exit;
+        }
+
+        $params = [
+            'name' => $name,
+            'email' => $email,
+            'city' => $city,
+            'state' => $state,
+            'password' => password_hash($password, PASSWORD_DEFAULT)
+        ];
+
+        $this->db->query('INSERT INTO user (name, email, city, state, password) VALUE (:name, :email, :city, :state, :password)', $params);
+
+        redirect('/');
     }
 }
