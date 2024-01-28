@@ -85,7 +85,6 @@ class Router
      * Route the request
      * 
      * @param string $uri
-     * @param string $method
      * @return void
      */
     public function route($uri): void
