@@ -69,7 +69,7 @@ class Session
      * 
      * @return void
      */
-    public static function destroy($key)
+    public static function destroy()
     {
         session_unset();
         session_destroy();
