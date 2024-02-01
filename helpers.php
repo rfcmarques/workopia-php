@@ -74,17 +74,15 @@ function dump(mixed $value)
 function dd(mixed $value)
 {
     echo "<pre>";
-    var_dump($value);
+    die(var_dump($value));
     echo "</pre>";
-
-    die();
 }
 
 /**
  * Format salary
  * 
  * @param string $salary
- * @return string Formated Salary
+ * @return string Formatted Salary
  */
 function formatSalary($salary)
 {
