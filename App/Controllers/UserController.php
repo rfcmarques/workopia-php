@@ -18,7 +18,7 @@ class UserController
 
     public function login()
     {
-        loadView('users/login');
+        view('users/login');
     }
 
     public function authenticate()
@@ -37,7 +37,7 @@ class UserController
         }
 
         if (!empty($errors)) {
-            loadView('users/login', ['errors' => $errors]);
+            view('users/login', ['errors' => $errors]);
             exit;
         }
 
@@ -49,14 +49,14 @@ class UserController
 
         if (!$user) {
             $errors['email'] = 'Incorrect credentials';
-            loadView('users/login', ['errors' => $errors]);
+            view('users/login', ['errors' => $errors]);
             exit;
         }
 
         if (!password_verify($password, $user->password)) {
             dd('aqui');
             $errors['email'] = 'Incorrect credentials';
-            loadView('users/login', ['errors' => $errors]);
+            view('users/login', ['errors' => $errors]);
             exit;
         }
 
@@ -83,7 +83,7 @@ class UserController
 
     public function create()
     {
-        loadView('users/create');
+        view('users/create');
     }
 
     public function store()
@@ -114,7 +114,7 @@ class UserController
         }
 
         if (!empty($errors)) {
-            loadView('users/create', [
+            view('users/create', [
                 'errors' => $errors,
                 'user' => [
                     'name' => $name,
@@ -133,7 +133,7 @@ class UserController
         $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
 
         if ($user) {
-            loadView('users/create', [
+            view('users/create', [
                 'errors' => $errors,
                 'user' => [
                     'name' => $name,

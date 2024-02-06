@@ -1,7 +1,7 @@
-<?= loadPartial('head') ?>
-<?= loadPartial('navbar') ?>
-<?= loadPartial('showcase-search') ?>
-<?= loadPartial('top-banner') ?>
+<?= partial('head') ?>
+<?= partial('navbar') ?>
+<?= partial('showcase-search') ?>
+<?= partial('top-banner') ?>
 
 
 <!-- Job Listings -->
@@ -45,5 +45,5 @@
 <!-- Bottom Banner -->
 
 
-<?= loadPartial('bottom-banner') ?>
-<?= loadPartial('footer') ?>
+<?= partial('bottom-banner') ?>
+<?= partial('footer') ?>

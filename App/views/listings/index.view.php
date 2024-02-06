@@ -1,6 +1,6 @@
-<?= loadPartial('head') ?>
-<?= loadPartial('navbar') ?>
-<?= loadPartial('top-banner') ?>
+<?= partial('head') ?>
+<?= partial('navbar') ?>
+<?= partial('top-banner') ?>
 
 
 <!-- Job Listings -->
@@ -14,7 +14,7 @@
       <?php endif ?>
     </div>
 
-    <?= loadPartial('message') ?>
+    <?= partial('message') ?>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 
@@ -50,5 +50,5 @@
 <!-- Bottom Banner -->
 
 
-<?= loadPartial('bottom-banner') ?>
-<?= loadPartial('footer') ?>
+<?= partial('bottom-banner') ?>
+<?= partial('footer') ?>

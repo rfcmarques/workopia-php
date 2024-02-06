@@ -1,6 +1,6 @@
-<?= loadPartial('head') ?>
-<?= loadPartial('navbar') ?>
-<?= loadPartial('top-banner') ?>
+<?= partial('head') ?>
+<?= partial('navbar') ?>
+<?= partial('top-banner') ?>
 
 <section class="flex justify-center items-center mt-20">
     <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-600 mx-6">
@@ -12,7 +12,7 @@
                 Job Info
             </h2>
 
-            <?= loadPartial('errors', [
+            <?= partial('errors', [
                 'errors' => $errors ?? ''
             ]) ?>
 
@@ -65,5 +65,5 @@
     </div>
 </section>
 
-<?= loadPartial('bottom-banner') ?>
-<?= loadPartial('footer') ?>
+<?= partial('bottom-banner') ?>
+<?= partial('footer') ?>
