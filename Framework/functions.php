@@ -8,7 +8,7 @@
  */
 function basePath(string $path = ''): string
 {
-    return __DIR__ . '/' . $path;
+    return BASE_PATH . $path;
 }
 
 /**
