@@ -1,10 +1,11 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
+const BASE_PATH = __DIR__ . '/../';
+
+require BASE_PATH . 'vendor/autoload.php';
+require BASE_PATH . 'Framework/functions.php';
 
 use Framework\Router;
 use Framework\Session;
-
-require '../helpers.php';
 
 Session::start();
 
