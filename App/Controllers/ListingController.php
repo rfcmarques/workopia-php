@@ -22,7 +22,7 @@ class ListingController
     {
         $listings = $this->db->query('SELECT * FROM listings ORDER BY created_at DESC')->fetchAll();
 
-        loadView('listings/index', [
+        view('listings/index', [
             'listings' => $listings
         ]);
     }
@@ -40,14 +40,14 @@ class ListingController
             die;
         }
 
-        loadView('listings/show', [
+        view('listings/show', [
             'listing' => $listing
         ]);
     }
 
     public function create()
     {
-        loadView('listings/create');
+        view('listings/create');
     }
 
     public function store()
@@ -70,7 +70,7 @@ class ListingController
         }
 
         if (!empty($errors)) {
-            loadView('listings/create', [
+            view('listings/create', [
                 'errors' => $errors,
                 'listing' => $newListingData
             ]);
@@ -151,7 +151,7 @@ class ListingController
             return redirect('/listings/' . $listing->id);
         }
 
-        loadView('listings/edit', [
+        view('listings/edit', [
             'listing' => $listing
         ]);
     }
@@ -193,7 +193,7 @@ class ListingController
         }
 
         if (!empty($errors)) {
-            loadView('listing/edit', [
+            view('listing/edit', [
                 'listing' => $listing,
                 'errors' => $errors
             ]);
@@ -232,7 +232,7 @@ class ListingController
 
         $listings = $this->db->query($query, $params)->fetchAll();
 
-        loadView('listings/index', [
+        view('listings/index', [
             'listings' => $listings,
             'keywords' => $keywords,
             'location' => $location

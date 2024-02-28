@@ -8,7 +8,7 @@
  */
 function basePath(string $path = ''): string
 {
-    return __DIR__ . '/' . $path;
+    return BASE_PATH . $path;
 }
 
 /**
@@ -19,7 +19,7 @@ function basePath(string $path = ''): string
  * @return void
  * 
  */
-function loadView(string $name, array $data = []): void
+function view(string $name, array $data = []): void
 {
     $viewPath = basePath("App/views/{$name}.view.php");
 
@@ -38,7 +38,7 @@ function loadView(string $name, array $data = []): void
  * @return void
  * 
  */
-function loadPartial(string $name, array $data = []): void
+function partial(string $name, array $data = []): void
 {
     $partialPath = basePath("App/views/partials/{$name}.php");
 
@@ -74,8 +74,10 @@ function dump(mixed $value)
 function dd(mixed $value)
 {
     echo "<pre>";
-    die(var_dump($value));
+    var_dump($value);
     echo "</pre>";
+
+    die();
 }
 
 /**

@@ -1,9 +1,9 @@
-<?= loadPartial('head') ?>
-<?= loadPartial('navbar') ?>
-<?= loadPartial('top-banner') ?>
+<?= partial('head') ?>
+<?= partial('navbar') ?>
+<?= partial('top-banner') ?>
 
 <section class="container mx-auto p-4 mt-4">
-    <?= loadPartial('message') ?>
+    <?= partial('message') ?>
     <div class="rounded-lg shadow-md bg-white p-3">
         <div class="flex justify-between items-center">
             <a class="block p-4 text-blue-700" href="/listings">
@@ -65,5 +65,5 @@
 </section>
 
 
-<?= loadPartial('bottom-banner') ?>
-<?= loadPartial('footer') ?>
+<?= partial('bottom-banner') ?>
+<?= partial('footer') ?>
